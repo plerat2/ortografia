@@ -1,0 +1,1611 @@
+
+<!-- saved from url=(0260)https://1379121260-atari-embeds.googleusercontent.com/embeds/16cb204cf3a9d4d223a0a3fd8b0eec5d/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.ca.4fEANRLsRvk.O%2Fd%3D1%2Frs%3DAHpOoo-RVHSn6qq6rqaBbSZyXBD069WJlA%2Fm%3D__features__ -->
+<html lang="ca" class="h-full"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base target="_blank">--><base href="." target="_blank">
+
+ 
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S Sonora i S Sorda</title>
+  <script src="./saved_resource"></script>
+  <script src="./element_sdk.js.baixa"></script>
+  <script src="./data_sdk.js.baixa"></script>
+  <link href="./css2(1)" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'Fredoka', sans-serif;
+    }
+    .word-btn {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .word-btn:hover:not(:disabled) {
+      transform: scale(1.05) translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+    .word-btn:disabled {
+      cursor: not-allowed;
+    }
+    .word-btn.correct {
+      background: linear-gradient(135deg, #10b981, #059669) !important;
+      color: white !important;
+      transform: scale(1.08);
+    }
+    .word-btn.incorrect {
+      background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+      color: white !important;
+      opacity: 0.6;
+      transform: scale(0.95);
+    }
+    .mode-btn.selected {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .test-btn {
+      transition: all 0.3s ease;
+    }
+    .test-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .test-btn.selected {
+      transform: scale(1.02);
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+    }
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes confettiDrop {
+      0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100%) rotate(720deg); opacity: 0; }
+    }
+    .slide-in { animation: slideInUp 0.5s ease; }
+    .bounce-in { animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+    .pulse-animation { animation: pulse 0.5s ease; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      animation: confettiDrop 3s linear forwards;
+    }
+    .modal-overlay {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+    .ranking-row {
+      transition: all 0.3s ease;
+    }
+    .ranking-row:hover {
+      transform: translateX(4px);
+      background: rgba(124, 58, 237, 0.1);
+    }
+    .ranking-position {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+    }
+    .ranking-gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; }
+    .ranking-silver { background: linear-gradient(135deg, #d1d5db, #9ca3af); color: white; }
+    .ranking-bronze { background: linear-gradient(135deg, #d97706, #b45309); color: white; }
+    .ranking-normal { background: #e5e7eb; color: #6b7280; }
+    .sound-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .sound-badge.sonora {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+    }
+    .sound-badge.sorda {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+    }
+    .rule-box {
+      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+      border-left: 4px solid #7c3aed;
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+    .admin-badge {
+      background: linear-gradient(135deg, #dc2626, #991b1b);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+      display: inline-block;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+ <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.fixed{position:fixed}.relative{position:relative}.inset-0{inset:0px}.z-50{z-index:50}.m-0{margin:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:0.25rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-3{height:0.75rem}.h-full{height:100%}.max-h-\[90\%\]{max-height:90%}.min-h-full{min-height:100%}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-r-lg{border-top-right-radius:0.5rem;border-bottom-right-radius:0.5rem}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l-4{border-left-width:4px}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-amber-300{--tw-border-opacity:1;border-color:rgb(252 211 77 / var(--tw-border-opacity, 1))}.border-blue-400{--tw-border-opacity:1;border-color:rgb(96 165 250 / var(--tw-border-opacity, 1))}.border-blue-500{--tw-border-opacity:1;border-color:rgb(59 130 246 / var(--tw-border-opacity, 1))}.border-cyan-200{--tw-border-opacity:1;border-color:rgb(165 243 252 / var(--tw-border-opacity, 1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.border-purple-400{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.border-purple-600{--tw-border-opacity:1;border-color:rgb(147 51 234 / var(--tw-border-opacity, 1))}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211 / var(--tw-border-opacity, 1))}.border-teal-200{--tw-border-opacity:1;border-color:rgb(153 246 228 / var(--tw-border-opacity, 1))}.bg-amber-200{--tw-bg-opacity:1;background-color:rgb(253 230 138 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-cyan-200{--tw-bg-opacity:1;background-color:rgb(165 243 252 / var(--tw-bg-opacity, 1))}.bg-emerald-200{--tw-bg-opacity:1;background-color:rgb(167 243 208 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-purple-200{--tw-bg-opacity:1;background-color:rgb(233 213 255 / var(--tw-bg-opacity, 1))}.bg-rose-200{--tw-bg-opacity:1;background-color:rgb(254 205 211 / var(--tw-bg-opacity, 1))}.bg-teal-200{--tw-bg-opacity:1;background-color:rgb(153 246 228 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/30{background-color:rgb(255 255 255 / 0.3)}.bg-white\/60{background-color:rgb(255 255 255 / 0.6)}.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-amber-100{--tw-gradient-from:#fef3c7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(254 243 199 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-50{--tw-gradient-from:#fffbeb var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 251 235 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-cyan-50{--tw-gradient-from:#ecfeff var(--tw-gradient-from-position);--tw-gradient-to:rgb(236 254 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-100{--tw-gradient-from:#d1fae5 var(--tw-gradient-from-position);--tw-gradient-to:rgb(209 250 229 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-emerald-50{--tw-gradient-from:#ecfdf5 var(--tw-gradient-from-position);--tw-gradient-to:rgb(236 253 245 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-100{--tw-gradient-from:#f3e8ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(243 232 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-purple-50{--tw-gradient-from:#faf5ff var(--tw-gradient-from-position);--tw-gradient-to:rgb(250 245 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-rose-50{--tw-gradient-from:#fff1f2 var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 241 242 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-teal-50{--tw-gradient-from:#f0fdfa var(--tw-gradient-from-position);--tw-gradient-to:rgb(240 253 250 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-amber-100{--tw-gradient-to:#fef3c7 var(--tw-gradient-to-position)}.to-amber-200{--tw-gradient-to:#fde68a var(--tw-gradient-to-position)}.to-cyan-100{--tw-gradient-to:#cffafe var(--tw-gradient-to-position)}.to-emerald-100{--tw-gradient-to:#d1fae5 var(--tw-gradient-to-position)}.to-emerald-200{--tw-gradient-to:#a7f3d0 var(--tw-gradient-to-position)}.to-purple-100{--tw-gradient-to:#f3e8ff var(--tw-gradient-to-position)}.to-purple-200{--tw-gradient-to:#e9d5ff var(--tw-gradient-to-position)}.to-rose-100{--tw-gradient-to:#ffe4e6 var(--tw-gradient-to-position)}.to-teal-100{--tw-gradient-to:#ccfbf1 var(--tw-gradient-to-position)}.to-yellow-100{--tw-gradient-to:#fef9c3 var(--tw-gradient-to-position)}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-8{padding-top:2rem;padding-bottom:2rem}.text-left{text-align:left}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-8xl{font-size:6rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.tracking-wide{letter-spacing:0.025em}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-cyan-700{--tw-text-opacity:1;color:rgb(14 116 144 / var(--tw-text-opacity, 1))}.text-cyan-800{--tw-text-opacity:1;color:rgb(21 94 117 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-orange-600{--tw-text-opacity:1;color:rgb(234 88 12 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60 / var(--tw-text-opacity, 1))}.text-rose-800{--tw-text-opacity:1;color:rgb(159 18 57 / var(--tw-text-opacity, 1))}.text-teal-700{--tw-text-opacity:1;color:rgb(15 118 110 / var(--tw-text-opacity, 1))}.text-teal-800{--tw-text-opacity:1;color:rgb(17 94 89 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/70{color:rgb(255 255 255 / 0.7)}.text-white\/90{color:rgb(255 255 255 / 0.9)}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.placeholder-gray-400::placeholder{--tw-placeholder-opacity:1;color:rgb(156 163 175 / var(--tw-placeholder-opacity, 1))}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-amber-50:hover{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.hover\:bg-cyan-50:hover{--tw-bg-opacity:1;background-color:rgb(236 254 255 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-50:hover{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-50:hover{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-50:hover{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.hover\:bg-teal-50:hover{--tw-bg-opacity:1;background-color:rgb(240 253 250 / var(--tw-bg-opacity, 1))}.hover\:text-gray-600:hover{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.focus\:border-purple-400:focus{--tw-border-opacity:1;border-color:rgb(192 132 252 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-4:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-purple-200:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(233 213 255 / var(--tw-ring-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:p-10{padding:2.5rem}.md\:p-12{padding:3rem}.md\:p-6{padding:1.5rem}.md\:p-8{padding:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-5xl{font-size:3rem;line-height:1}}</style></head>
+ <body class="h-full m-0 overflow-auto">
+  <div id="app" class="min-h-full w-full" style="background: linear-gradient(145deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);"><!-- Admin Panel Modal -->
+   <div id="admin-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="glass-card rounded-3xl p-6 md:p-8 max-w-4xl w-full shadow-2xl bounce-in max-h-[90%] overflow-hidden flex flex-col">
+     <div class="text-center mb-6">
+      <div class="text-5xl mb-3">
+       👨‍🏫
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800">Panell d'Administrador</h3>
+      <p class="text-gray-600 mt-1">Gestió de proves i resultats</p>
+     </div><!-- Tabs -->
+     <div class="flex gap-2 mb-4 border-b border-gray-200"><button onclick="showAdminTab(&#39;tests&#39;)" id="admin-tab-tests" class="px-4 py-2 font-semibold text-purple-600 border-b-2 border-purple-600"> 📝 Proves </button> <button onclick="showAdminTab(&#39;results&#39;)" id="admin-tab-results" class="px-4 py-2 font-semibold text-gray-500"> 📊 Resultats </button> <button onclick="showAdminTab(&#39;analysis&#39;)" id="admin-tab-analysis" class="px-4 py-2 font-semibold text-gray-500"> 📈 Anàlisi </button>
+     </div><!-- Tests Tab -->
+     <div id="admin-content-tests" class="flex-1 overflow-y-auto">
+      <div class="space-y-3 mb-4">
+       <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+        <p class="text-sm text-blue-800"><strong>Proves tancades:</strong> Tots els alumnes responen les mateixes 10 preguntes. Ideal per avaluar i comparar resultats.</p>
+       </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 mb-4">
+       <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-5 border-2 border-purple-200">
+        <div class="flex items-center justify-between mb-3">
+         <h4 class="font-bold text-purple-800 text-lg">📝 Prova A</h4><span class="text-xs bg-purple-200 px-2 py-1 rounded-full text-purple-700">10 preguntes</span>
+        </div>
+        <p class="text-sm text-purple-700 mb-3">Mix equilibrat: sonores i sordes bàsiques</p><button onclick="viewTestQuestions(&#39;A&#39;)" class="w-full px-4 py-2 rounded-lg font-semibold text-purple-700 bg-white hover:bg-purple-50 transition-all text-sm"> 👁️ Veure preguntes </button>
+       </div>
+       <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl p-5 border-2 border-emerald-200">
+        <div class="flex items-center justify-between mb-3">
+         <h4 class="font-bold text-emerald-800 text-lg">📝 Prova B</h4><span class="text-xs bg-emerald-200 px-2 py-1 rounded-full text-emerald-700">10 preguntes</span>
+        </div>
+        <p class="text-sm text-emerald-700 mb-3">Focus: Z i derivats dins/fons/trans</p><button onclick="viewTestQuestions(&#39;B&#39;)" class="w-full px-4 py-2 rounded-lg font-semibold text-emerald-700 bg-white hover:bg-emerald-50 transition-all text-sm"> 👁️ Veure preguntes </button>
+       </div>
+       <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-5 border-2 border-amber-200">
+        <div class="flex items-center justify-between mb-3">
+         <h4 class="font-bold text-amber-800 text-lg">📝 Prova C</h4><span class="text-xs bg-amber-200 px-2 py-1 rounded-full text-amber-700">10 preguntes</span>
+        </div>
+        <p class="text-sm text-amber-700 mb-3">Focus: C/Ç i SS sordes</p><button onclick="viewTestQuestions(&#39;C&#39;)" class="w-full px-4 py-2 rounded-lg font-semibold text-amber-700 bg-white hover:bg-amber-50 transition-all text-sm"> 👁️ Veure preguntes </button>
+       </div>
+       <div class="bg-gradient-to-br from-rose-50 to-rose-100 rounded-xl p-5 border-2 border-rose-200">
+        <div class="flex items-center justify-between mb-3">
+         <h4 class="font-bold text-rose-800 text-lg">📝 Prova D</h4><span class="text-xs bg-rose-200 px-2 py-1 rounded-full text-rose-700">10 preguntes</span>
+        </div>
+        <p class="text-sm text-rose-700 mb-3">Mix avançat: totes les regles S</p><button onclick="viewTestQuestions(&#39;D&#39;)" class="w-full px-4 py-2 rounded-lg font-semibold text-rose-700 bg-white hover:bg-rose-50 transition-all text-sm"> 👁️ Veure preguntes </button>
+       </div>
+       <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-5 border-2 border-teal-200">
+        <div class="flex items-center justify-between mb-3">
+         <h4 class="font-bold text-teal-800 text-lg">✍️ Prova E</h4><span class="text-xs bg-teal-200 px-2 py-1 rounded-full text-teal-700">10 preguntes</span>
+        </div>
+        <p class="text-sm text-teal-700 mb-3">B i V: Sèrie 1</p><button onclick="viewTestQuestions(&#39;E&#39;)" class="w-full px-4 py-2 rounded-lg font-semibold text-teal-700 bg-white hover:bg-teal-50 transition-all text-sm"> 👁️ Veure preguntes </button>
+       </div>
+       <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-xl p-5 border-2 border-cyan-200">
+        <div class="flex items-center justify-between mb-3">
+         <h4 class="font-bold text-cyan-800 text-lg">✍️ Prova F</h4><span class="text-xs bg-cyan-200 px-2 py-1 rounded-full text-cyan-700">10 preguntes</span>
+        </div>
+        <p class="text-sm text-cyan-700 mb-3">B i V: Sèrie 2</p><button onclick="viewTestQuestions(&#39;F&#39;)" class="w-full px-4 py-2 rounded-lg font-semibold text-cyan-700 bg-white hover:bg-cyan-50 transition-all text-sm"> 👁️ Veure preguntes </button>
+       </div>
+      </div>
+     </div><!-- Results Tab -->
+     <div id="admin-content-results" class="hidden flex-1 overflow-y-auto">
+      <div class="mb-4"><label class="block text-sm font-semibold text-gray-700 mb-2">Filtrar per prova:</label> <select id="filter-test" onchange="filterResultsByTest()" class="w-full px-4 py-2 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-purple-400"> <option value="all">Totes les proves</option> <option value="A">Prova A - S Sonora/Sorda</option> <option value="B">Prova B - S Sonora/Sorda</option> <option value="C">Prova C - S Sonora/Sorda</option> <option value="D">Prova D - S Sonora/Sorda</option> <option value="E">Prova E - B i V</option> <option value="F">Prova F - B i V</option> </select>
+      </div>
+      <div id="admin-results-list" class="space-y-2">
+       <p class="text-gray-500 text-center py-8">No hi ha resultats disponibles</p>
+      </div>
+     </div><!-- Analysis Tab -->
+     <div id="admin-content-analysis" class="hidden flex-1 overflow-y-auto">
+      <div class="mb-4"><label class="block text-sm font-semibold text-gray-700 mb-2">Analitzar prova:</label> <select id="analyze-test" onchange="analyzeTest()" class="w-full px-4 py-2 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-purple-400"> <option value="">Selecciona una prova</option> <option value="A">Prova A - S Sonora/Sorda</option> <option value="B">Prova B - S Sonora/Sorda</option> <option value="C">Prova C - S Sonora/Sorda</option> <option value="D">Prova D - S Sonora/Sorda</option> <option value="E">Prova E - B i V</option> <option value="F">Prova F - B i V</option> </select>
+      </div>
+      <div id="analysis-content" class="space-y-4">
+       <p class="text-gray-500 text-center py-8">Selecciona una prova per veure l'anàlisi</p>
+      </div>
+     </div><button onclick="closeAdminModal()" class="mt-4 w-full px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);"> Tancar </button>
+    </div>
+   </div><!-- Test Questions Modal -->
+   <div id="test-questions-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="glass-card rounded-3xl p-6 md:p-8 max-w-2xl w-full shadow-2xl bounce-in max-h-[90%] overflow-hidden flex flex-col">
+     <div class="text-center mb-6">
+      <h3 id="test-questions-title" class="text-2xl font-bold text-gray-800">Prova A - Preguntes</h3>
+     </div>
+     <div id="test-questions-list" class="flex-1 overflow-y-auto space-y-3 mb-4">
+     </div><button onclick="closeTestQuestionsModal()" class="w-full px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);"> Tancar </button>
+    </div>
+   </div><!-- Ranking Modal -->
+   <div id="ranking-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="glass-card rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl bounce-in max-h-[90%] overflow-hidden flex flex-col">
+     <div class="text-center mb-6">
+      <div class="text-5xl mb-3">
+       🏆
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800">Rànquing de campions</h3>
+      <p class="text-gray-600 mt-1">Les millors puntuacions</p>
+     </div>
+     <div id="ranking-list" class="flex-1 overflow-y-auto space-y-2 mb-4">
+      <p class="text-gray-500 text-center py-8">Encara no hi ha puntuacions</p>
+     </div><button onclick="closeRankingModal()" class="w-full px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);"> Tancar </button>
+    </div>
+   </div><!-- History Modal -->
+   <div id="history-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="glass-card rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl bounce-in max-h-[90%] overflow-hidden flex flex-col">
+     <div class="text-center mb-6">
+      <div class="text-5xl mb-3">
+       📊
+      </div>
+      <h3 class="text-2xl font-bold text-gray-800">El teu historial</h3>
+      <p id="history-player-name" class="text-gray-600 mt-1"></p>
+     </div>
+     <div id="history-stats" class="mb-4 grid grid-cols-3 gap-3">
+      <div class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-3 text-center">
+       <p class="text-xs text-purple-700 font-medium">Partides</p>
+       <p id="total-games" class="text-2xl font-bold text-purple-800">0</p>
+      </div>
+      <div class="bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl p-3 text-center">
+       <p class="text-xs text-emerald-700 font-medium">Millor %</p>
+       <p id="best-percentage" class="text-2xl font-bold text-emerald-800">0%</p>
+      </div>
+      <div class="bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl p-3 text-center">
+       <p class="text-xs text-amber-700 font-medium">Mitjana</p>
+       <p id="avg-percentage" class="text-2xl font-bold text-amber-800">0%</p>
+      </div>
+     </div>
+     <div id="history-list" class="flex-1 overflow-y-auto space-y-2 mb-4">
+      <p class="text-gray-500 text-center py-8">Encara no has jugat cap partida</p>
+     </div><button onclick="closeHistoryModal()" class="w-full px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, #3b82f6, #2563eb);"> Tancar </button>
+    </div>
+   </div><!-- Welcome Screen -->
+   <div id="welcome-screen" class="min-h-full w-full flex flex-col items-center justify-center p-6">
+    <div class="text-center max-w-md w-full">
+     <div class="text-8xl mb-6">
+      🎵
+     </div>
+     <h1 id="welcome-title" class="text-4xl md:text-5xl font-bold mb-4" style="color: #7c3aed;">Ortografia: S Sonora/Sorda i B/V</h1>
+     <p class="text-lg mb-2" style="color: #8b5cf6;">Aprèn a diferenciar els sons de la S</p>
+     <p id="welcome-instructions" class="text-base mb-8" style="color: #a78bfa;">Identifica quina paraula conté una s sonora o sorda</p>
+     <form onsubmit="saveParticipantName(event)" class="space-y-4">
+      <div class="relative"><label for="participant-name" class="sr-only">El teu nom</label> <input type="text" id="participant-name" class="w-full px-6 py-4 rounded-2xl text-xl text-center font-semibold bg-white/95 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-200" placeholder="Escriu el teu nom..." required="" autocomplete="off">
+      </div><!-- Mode Selection -->
+      <div class="space-y-3">
+       <p class="text-sm font-semibold" style="color: #7c3aed;">Tria el mode de joc:</p>
+       <div class="grid grid-cols-2 gap-3"><button type="button" onclick="selectMode(&#39;practice&#39;)" id="mode-practice" class="mode-btn selected px-4 py-3 rounded-xl font-semibold transition-all border-2 bg-white/80" style="border-color: #10b981; color: #059669;">
+         <div class="text-2xl mb-1">
+          📚
+         </div>
+         <div class="text-sm">
+          Pràctica
+         </div></button> <button type="button" onclick="selectMode(&#39;exam&#39;)" id="mode-exam" class="mode-btn px-4 py-3 rounded-xl font-semibold transition-all border-2 bg-white/30" style="border-color: #e5e7eb; color: #6b7280;">
+         <div class="text-2xl mb-1">
+          🏆
+         </div>
+         <div class="text-sm">
+          Examen
+         </div></button>
+       </div>
+       <p id="mode-description" class="text-xs px-3 py-2 rounded-lg bg-emerald-50 text-emerald-700 text-left">📚 Mode pràctica: Aprèn sense pressió. Veure explicacions de cada resposta.</p>
+      </div><!-- Test Selection (shown only in exam mode) -->
+      <div id="test-selection" class="hidden space-y-3">
+       <p class="text-sm font-semibold" style="color: #7c3aed;">Tria la prova a fer:</p>
+       <div class="grid grid-cols-2 gap-3"><button type="button" onclick="selectTest(&#39;A&#39;)" class="test-btn px-4 py-3 rounded-xl font-semibold transition-all border-2 bg-white/60" style="border-color: #a78bfa; color: #7c3aed;">
+         <div class="text-xl mb-1">
+          📝
+         </div>
+         <div class="text-sm">
+          Prova A
+         </div></button> <button type="button" onclick="selectTest(&#39;B&#39;)" class="test-btn px-4 py-3 rounded-xl font-semibold transition-all border-2 bg-white/60" style="border-color: #a78bfa; color: #7c3aed;">
+         <div class="text-xl mb-1">
+          📝
+         </div>
+         <div class="text-sm">
+          Prova B
+         </div></button> <button type="button" onclick="selectTest(&#39;C&#39;)" class="test-btn px-4 py-3 rounded-xl font-semibold transition-all border-2 bg-white/60" style="border-color: #a78bfa; color: #7c3aed;">
+         <div class="text-xl mb-1">
+          📝
+         </div>
+         <div class="text-sm">
+          Prova C
+         </div></button> <button type="button" onclick="selectTest(&#39;D&#39;)" class="test-btn px-4 py-3 rounded-xl font-semibold transition-all border-2 bg-white/60" style="border-color: #a78bfa; color: #7c3aed;">
+         <div class="text-xl mb-1">
+          📝
+         </div>
+         <div class="text-sm">
+          Prova D
+         </div></button> <button type="button" onclick="selectTest(&#39;E&#39;)" class="test-btn px-4 py-3 rounded-xl font-semibold transition-all border-2 bg-white/60" style="border-color: #14b8a6; color: #0f766e;">
+         <div class="text-xl mb-1">
+          ✍️
+         </div>
+         <div class="text-sm">
+          Prova E
+         </div></button> <button type="button" onclick="selectTest(&#39;F&#39;)" class="test-btn px-4 py-3 rounded-xl font-semibold transition-all border-2 bg-white/60" style="border-color: #06b6d4; color: #0e7490;">
+         <div class="text-xl mb-1">
+          ✍️
+         </div>
+         <div class="text-sm">
+          Prova F
+         </div></button>
+       </div><input type="hidden" id="selected-test" value="">
+      </div><button type="submit" class="w-full px-8 py-4 rounded-2xl font-bold text-white text-xl transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);"> Començar → </button>
+     </form>
+     <div class="flex gap-3 mt-6"><button onclick="showRankingModal()" class="flex-1 px-4 py-3 rounded-xl font-semibold transition-all hover:scale-105 border-2 border-purple-400" style="color: #7c3aed; background: rgba(255,255,255,0.6);"> 🏆 Rànquing </button> <button onclick="showHistoryModal()" class="flex-1 px-4 py-3 rounded-xl font-semibold transition-all hover:scale-105 border-2 border-blue-400" style="color: #3b82f6; background: rgba(255,255,255,0.6);"> 📊 Historial </button>
+     </div><!-- Admin Access --> <button onclick="showAdminLogin()" class="mt-4 text-xs text-gray-400 hover:text-gray-600 underline"> Accés administrador </button>
+    </div>
+   </div><!-- Quiz Screen -->
+   <div id="quiz-screen" class="hidden min-h-full w-full p-4 md:p-6">
+    <header class="max-w-4xl mx-auto mb-6">
+     <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
+      <div class="flex items-center gap-4"><span id="question-counter" class="text-white/90 font-semibold text-lg">Pregunta 1 de 15</span> <span id="mode-indicator" class="px-3 py-1 rounded-full text-xs font-bold bg-white/20 text-white">📚 Pràctica</span>
+      </div>
+      <div class="flex items-center gap-4">
+       <div class="text-center bg-white/20 rounded-2xl px-4 py-2">
+        <p class="text-white/70 text-xs uppercase tracking-wide">Punts</p>
+        <p id="score-display" class="text-2xl font-bold text-white">0</p>
+       </div>
+       <div class="text-center bg-white/20 rounded-2xl px-4 py-2">
+        <p class="text-white/70 text-xs uppercase tracking-wide">Encerts</p>
+        <p id="correct-display" class="text-2xl font-bold text-white">0</p>
+       </div>
+      </div>
+     </div>
+     <div class="h-3 bg-white/20 rounded-full overflow-hidden">
+      <div id="quiz-progress" class="h-full rounded-full transition-all duration-500" style="width: 0%; background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div>
+     </div>
+    </header>
+    <main class="max-w-4xl mx-auto">
+     <div class="glass-card rounded-3xl p-6 md:p-10 shadow-2xl">
+      <div id="question-area">
+       <div class="text-center mb-8">
+        <div id="sound-badge-container" class="mb-4"></div>
+        <p id="question-text" class="text-2xl md:text-3xl font-bold text-gray-800 leading-relaxed"></p>
+       </div>
+       <div id="words-container" class="grid gap-4 mt-8"></div>
+      </div>
+      <div id="feedback-area" class="hidden mt-8 text-center">
+       <div class="mb-6">
+        <p id="feedback-icon" class="text-6xl mb-3"></p>
+        <p id="feedback-text" class="text-2xl font-bold mb-2"></p>
+        <p id="explanation-text" class="text-gray-600 text-lg"></p><!-- Educational feedback -->
+        <div id="rule-explanation" class="rule-box text-left text-sm">
+         <p class="font-bold text-purple-800 mb-2">📖 Regla gramatical:</p>
+         <p id="rule-text" class="text-gray-700"></p>
+        </div>
+       </div><button onclick="nextQuestion()" class="px-8 py-4 rounded-xl font-bold text-white transition-all hover:scale-105 text-lg" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);"> Següent pregunta → </button>
+      </div>
+     </div>
+    </main>
+   </div><!-- Results Screen -->
+   <div id="results-screen" class="hidden min-h-full w-full flex flex-col items-center justify-center p-6">
+    <div class="glass-card rounded-3xl p-8 md:p-12 max-w-lg w-full text-center shadow-2xl">
+     <div id="results-icon" class="text-8xl mb-4">
+      🎉
+     </div>
+     <h2 id="results-title" class="text-3xl font-bold text-gray-800 mb-2">Molt bé!</h2>
+     <p id="results-message" class="text-gray-600 mb-6 text-lg"></p>
+     <div id="ranking-position-banner" class="hidden mb-6 p-4 rounded-xl bg-gradient-to-r from-amber-100 to-yellow-100 border-2 border-amber-300">
+      <p class="text-amber-800 font-bold text-lg">🏆 <span id="ranking-position-text"></span></p>
+     </div>
+     <div class="grid grid-cols-2 gap-4 mb-6">
+      <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-5">
+       <p class="text-emerald-600 text-sm font-medium">Encerts</p>
+       <p id="final-correct" class="text-5xl font-bold text-emerald-700">0</p>
+      </div>
+      <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-5">
+       <p class="text-purple-600 text-sm font-medium">Puntuació</p>
+       <p id="final-score" class="text-5xl font-bold text-purple-700">0</p>
+      </div>
+     </div>
+     <div class="bg-gray-100 rounded-2xl p-5 mb-6">
+      <p class="text-gray-600 text-lg mb-1">Percentatge d'encerts</p>
+      <p id="final-percentage" class="text-6xl font-bold text-gray-800">0%</p>
+     </div>
+     <div id="stats-breakdown" class="text-left mb-6 bg-blue-50 rounded-2xl p-5">
+      <p class="text-blue-700 font-semibold mb-3 text-center">📊 Detall dels resultats</p>
+      <div class="space-y-2">
+       <div class="flex justify-between items-center"><span class="text-gray-700">S Sonora correctes:</span> <span id="sonora-correct" class="font-bold text-blue-600">0</span>
+       </div>
+       <div class="flex justify-between items-center"><span class="text-gray-700">S Sorda correctes:</span> <span id="sorda-correct" class="font-bold text-orange-600">0</span>
+       </div>
+      </div>
+     </div>
+     <div class="flex flex-col gap-3"><button onclick="showHistoryModal()" class="w-full px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, #3b82f6, #2563eb);"> 📊 Veure el meu historial </button> <button onclick="showRankingModal()" class="w-full px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);"> 🏆 Veure rànquing </button> <button onclick="restartQuiz()" class="w-full px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, #10b981, #059669);"> 🔄 Tornar a jugar </button> <button onclick="backToWelcome()" class="w-full px-6 py-3 rounded-xl font-semibold text-gray-700 transition-all hover:bg-gray-100 border-2 border-gray-200"> ← Tornar a l'inici </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      activity_title: 'Ortografia: S Sonora/Sorda i B/V',
+      correct_message: 'Excel·lent! 🎉',
+      incorrect_message: 'Torna-ho a intentar!',
+      instructions: 'Identifica quina paraula conté una s sonora o sorda',
+      admin_password: 'admin123'
+    };
+
+    // Words database with grammatical rules
+    const WORDS = {
+      sonora: ['casa', 'rosa', 'música', 'camisa', 'ase', 'bellesa', 'desembre', 'ozó', 'amazona', 'trapezi', 'nazisme', 'zebra', 'zero', 'zinc', 'zona', 'onze', 'dotze', 'pinzell', 'esmorzar', 'crisi', 'dosi', 'benzina', 'medusa', 'paisatge', 'endinsar', 'transitar', 'enfonsar', 'trànsit'],
+      sorda: ['sabata', 'sabó', 'senyor', 'silenci', 'arròs', 'nas', 'gos', 'llapis', 'temps', 'persones', 'arbres', 'bastó', 'fusta', 'gespa', 'trist', 'cursa', 'dansa', 'passar', 'cassola', 'tossut', 'arrossos', 'cel', 'ceba', 'cent', 'cim', 'cinema', 'cigró', 'ciutat', 'importància', 'distància', 'ambulància', 'ciència', 'força', 'plaça', 'cançó', 'eriçó', 'lliçó', 'confiança', 'esperança', 'aparença', 'creença', 'braç', 'llaç', 'lluç', 'glaç']
+    };
+
+    // Grammatical rules for each word
+    const RULES = {
+      'casa': 'S entre vocals → S SONORA (ca-s-a)',
+      'rosa': 'S entre vocals → S SONORA (ro-s-a)',
+      'música': 'S entre vocals → S SONORA (mú-si-ca)',
+      'camisa': 'S entre vocals → S SONORA (ca-mi-sa)',
+      'ase': 'S entre vocals → S SONORA (a-se)',
+      'bellesa': 'S entre vocals → S SONORA (be-lle-sa)',
+      'desembre': 'S entre vocals → S SONORA (de-sem-bre)',
+      'ozó': 'Z sona com S SONORA',
+      'amazona': 'Z sona com S SONORA',
+      'trapezi': 'Z sona com S SONORA (tra-pe-zi)',
+      'nazisme': 'Z sona com S SONORA',
+      'zebra': 'Z sona com S SONORA',
+      'zero': 'Z sona com S SONORA',
+      'zinc': 'Z sona com S SONORA',
+      'zona': 'Z sona com S SONORA',
+      'onze': 'Z sona com S SONORA',
+      'dotze': 'Z sona com S SONORA',
+      'pinzell': 'Z sona com S SONORA (pin-zell)',
+      'esmorzar': 'Z sona com S SONORA (es-mor-zar)',
+      'crisi': 'S entre vocals → S SONORA (cri-si)',
+      'dosi': 'S entre vocals → S SONORA (do-si)',
+      'benzina': 'Z sona com S SONORA (ben-zi-na)',
+      'medusa': 'S entre vocals → S SONORA (me-du-sa)',
+      'paisatge': 'S entre vocals → S SONORA (pai-sat-ge)',
+      'endinsar': 'Derivat de "dins" → S SONORA [z] (excepció gràfica)',
+      'transitar': 'Derivat de "trans" → S SONORA [z] (excepció gràfica)',
+      'enfonsar': 'Derivat de "fons" → S SONORA [z] (excepció gràfica)',
+      'trànsit': 'Derivat de "trans" → S SONORA [z] (excepció gràfica)',
+      'sabata': 'S a l\'inici de paraula → S SORDA',
+      'sabó': 'S a l\'inici de paraula → S SORDA',
+      'senyor': 'S a l\'inici de paraula → S SORDA',
+      'silenci': 'S a l\'inici de paraula → S SORDA',
+      'arròs': 'S després de consonant (r) → S SORDA',
+      'nas': 'S després de consonant (n) → S SORDA',
+      'gos': 'S després de consonant (o) final → S SORDA',
+      'llapis': 'S final de paraula → S SORDA',
+      'temps': 'S després de consonant (p) → S SORDA',
+      'persones': 'S a l\'inici de síl·laba → S SORDA (per-so-nes)',
+      'arbres': 'S després de consonant (r) → S SORDA',
+      'bastó': 'S a l\'inici de síl·laba → S SORDA (bas-tó)',
+      'fusta': 'S a l\'inici de síl·laba → S SORDA (fus-ta)',
+      'gespa': 'S a l\'inici de síl·laba → S SORDA (ges-pa)',
+      'trist': 'S després de consonant (i) → S SORDA',
+      'cursa': 'S a l\'inici de síl·laba → S SORDA (cur-sa)',
+      'dansa': 'S després de consonant (n) → S SORDA (dan-sa)',
+      'passar': 'SS sempre és SORDA (pas-sar)',
+      'cassola': 'SS sempre és SORDA (cas-so-la)',
+      'tossut': 'SS sempre és SORDA (tos-sut)',
+      'arrossos': 'SS sempre és SORDA (a-ros-sos)',
+      'cel': 'C davant e/i sona com S SORDA',
+      'ceba': 'C davant e/i sona com S SORDA',
+      'cent': 'C davant e/i sona com S SORDA',
+      'cim': 'C davant e/i sona com S SORDA',
+      'cinema': 'C davant e/i sona com S SORDA',
+      'cigró': 'C davant e/i sona com S SORDA',
+      'ciutat': 'C davant e/i sona com S SORDA',
+      'importància': 'C davant e/i sona com S SORDA (im-por-tàn-ci-a)',
+      'distància': 'C davant e/i sona com S SORDA (dis-tàn-ci-a)',
+      'ambulància': 'C davant e/i sona com S SORDA (am-bu-làn-ci-a)',
+      'ciència': 'C davant e/i sona com S SORDA (ci-èn-ci-a)',
+      'força': 'Ç sempre sona com S SORDA',
+      'plaça': 'Ç sempre sona com S SORDA',
+      'cançó': 'Ç sempre sona com S SORDA',
+      'eriçó': 'Ç sempre sona com S SORDA',
+      'lliçó': 'Ç sempre sona com S SORDA',
+      'confiança': 'Ç sempre sona com S SORDA',
+      'esperança': 'Ç sempre sona com S SORDA',
+      'aparença': 'Ç sempre sona com S SORDA',
+      'creença': 'Ç sempre sona com S SORDA',
+      'braç': 'Ç sempre sona com S SORDA',
+      'llaç': 'Ç sempre sona com S SORDA',
+      'lluç': 'Ç sempre sona com S SORDA',
+      'glaç': 'Ç sempre sona com S SORDA'
+    };
+
+    // Fixed test questions (10 questions each)
+    const FIXED_TESTS = {
+      A: [ // Mix equilibrat S
+        {askingFor: 'sonora', correctWord: 'casa', incorrect: ['sabata', 'llapis']},
+        {askingFor: 'sorda', correctWord: 'temps', incorrect: ['rosa', 'música']},
+        {askingFor: 'sonora', correctWord: 'bellesa', incorrect: ['gos', 'nas']},
+        {askingFor: 'sorda', correctWord: 'cinema', incorrect: ['camisa', 'ase']},
+        {askingFor: 'sonora', correctWord: 'zero', incorrect: ['força', 'cent']},
+        {askingFor: 'sorda', correctWord: 'passar', incorrect: ['amazona', 'trapezi']},
+        {askingFor: 'sonora', correctWord: 'desembre', incorrect: ['silenci', 'arròs']},
+        {askingFor: 'sorda', correctWord: 'plaça', incorrect: ['paisatge', 'medusa']},
+        {askingFor: 'sonora', correctWord: 'onze', incorrect: ['ceba', 'ciutat']},
+        {askingFor: 'sorda', correctWord: 'bastó', incorrect: ['crisi', 'dosi']}
+      ],
+      B: [ // Focus Z i derivats dins/fons/trans
+        {askingFor: 'sonora', correctWord: 'endinsar', incorrect: ['passar', 'tossut']},
+        {askingFor: 'sorda', correctWord: 'dansa', incorrect: ['transitar', 'zebra']},
+        {askingFor: 'sonora', correctWord: 'transitar', incorrect: ['cursa', 'cinema']},
+        {askingFor: 'sorda', correctWord: 'cassola', incorrect: ['enfonsar', 'zona']},
+        {askingFor: 'sonora', correctWord: 'dotze', incorrect: ['cel', 'cim']},
+        {askingFor: 'sonora', correctWord: 'trànsit', incorrect: ['cigró', 'força']},
+        {askingFor: 'sonora', correctWord: 'benzina', incorrect: ['plaça', 'cançó']},
+        {askingFor: 'sorda', correctWord: 'arrossos', incorrect: ['zinc', 'nazisme']},
+        {askingFor: 'sonora', correctWord: 'enfonsar', incorrect: ['sabó', 'senyor']},
+        {askingFor: 'sorda', correctWord: 'lliçó', incorrect: ['ozó', 'medusa']}
+      ],
+      C: [ // Focus C/Ç i SS
+        {askingFor: 'sorda', correctWord: 'força', incorrect: ['rosa', 'casa']},
+        {askingFor: 'sonora', correctWord: 'música', incorrect: ['plaça', 'cançó']},
+        {askingFor: 'sorda', correctWord: 'passar', incorrect: ['bellesa', 'ase']},
+        {askingFor: 'sonora', correctWord: 'camisa', incorrect: ['eriçó', 'lliçó']},
+        {askingFor: 'sorda', correctWord: 'confiança', incorrect: ['desembre', 'trapezi']},
+        {askingFor: 'sonora', correctWord: 'paisatge', incorrect: ['esperança', 'aparença']},
+        {askingFor: 'sorda', correctWord: 'cinema', incorrect: ['crisi', 'dosi']},
+        {askingFor: 'sonora', correctWord: 'amazona', incorrect: ['braç', 'llaç']},
+        {askingFor: 'sorda', correctWord: 'importància', incorrect: ['benzina', 'zero']},
+        {askingFor: 'sonora', correctWord: 'medusa', incorrect: ['glaç', 'ciutat']}
+      ],
+      D: [ // Mix avançat S
+        {askingFor: 'sonora', correctWord: 'transitar', incorrect: ['dansa', 'importància']},
+        {askingFor: 'sorda', correctWord: 'distància', incorrect: ['endinsar', 'enfonsar']},
+        {askingFor: 'sonora', correctWord: 'pinzell', incorrect: ['ambulància', 'ciència']},
+        {askingFor: 'sorda', correctWord: 'esperança', incorrect: ['esmorzar', 'dotze']},
+        {askingFor: 'sonora', correctWord: 'nazisme', incorrect: ['creença', 'lliçó']},
+        {askingFor: 'sorda', correctWord: 'persones', incorrect: ['onze', 'zinc']},
+        {askingFor: 'sonora', correctWord: 'zona', incorrect: ['arbres', 'gespa']},
+        {askingFor: 'sorda', correctWord: 'tossut', incorrect: ['paisatge', 'medusa']},
+        {askingFor: 'sonora', correctWord: 'crisi', incorrect: ['cursa', 'trist']},
+        {askingFor: 'sorda', correctWord: 'lluç', incorrect: ['zebra', 'bellesa']}
+      ],
+      E: [ // B i V - Sèrie 1
+        {type: 'bv', correctSeries: 'abans,basc,corba', incorrect: ['abans,vasc,corba', 'abans,vasc,corva']},
+        {type: 'bv', correctSeries: 'rebolcar,acabar,bena', incorrect: ['revolcar,acabar,bena', 'revolcar,acabar,vena']},
+        {type: 'bv', correctSeries: 'bolcar,embenar,ribera', incorrect: ['volcar,embenar,rivera', 'bolcar,embenar,rivera']},
+        {type: 'bv', correctSeries: 'alabès,berruga,calb', incorrect: ['alavès,berruga,calb', 'alavès,verruga,calb']},
+        {type: 'bv', correctSeries: 'sabó,arribar,biga', incorrect: ['sabó,arrivar,biga', 'sabó,arribar,viga']},
+        {type: 'bv', correctSeries: 'comboi,rebentar,treballar', incorrect: ['conboi,rebentar,trevallar', 'comboi,reventar,treballar']},
+        {type: 'bv', correctSeries: 'embolicar,vamba,reembors', incorrect: ['envolicar,vamba,reembors', 'embolicar,bamba,reembors']},
+        {type: 'bv', correctSeries: 'advocat,bava,gavardina', incorrect: ['advocat,baba,gabardina', 'advocat,bava,gabardina']},
+        {type: 'bv', correctSeries: 'pavelló,sivella,avall', incorrect: ['pabelló,sivella,avall', 'pabelló,sibella,avall']},
+        {type: 'bv', correctSeries: 'cascavell,govern,provar', incorrect: ['cascavell,gobern,provar', 'cascabell,govern,provar']}
+      ],
+      F: [ // B i V - Sèrie 2
+        {type: 'bv', correctSeries: 'avet,cavall,gravar', incorrect: ['abet,cavall,grabar', 'avet,caball,gravar']},
+        {type: 'bv', correctSeries: 'raval,taverna,avi', incorrect: ['rabal,taverna,avi', 'raval,taberna,avi']},
+        {type: 'bv', correctSeries: 'covard,haver,rave', incorrect: ['cobard,haver,rave', 'cobard,haver,rabe']},
+        {type: 'bv', correctSeries: 'travar,avorrir,espavilar', incorrect: ['travar,aborrir,espavilar', 'trabar,avorrir,espavilar']},
+        {type: 'bv', correctSeries: 'llavi,rovell,vaixell', incorrect: ['llabi,rovell,vaixell', 'llavi,robell,vaixell']},
+        {type: 'bv', correctSeries: 'avortar,Esteve,núvol', incorrect: ['abortar,Esteve,núvol', 'abortar,Esteve,bena']},
+        {type: 'bv', correctSeries: 'acabar,vernís,canviar', incorrect: ['acavar,vernís,canviar', 'acabar,bernís,canviar']},
+        {type: 'bv', correctSeries: 'convertir,enviament,tramvia', incorrect: ['convertir,enviament,tranvia', 'convertir,enviament,trambia']},
+        {type: 'bv', correctSeries: 'circumval·lació,tramvia,saber', incorrect: ['circumval·lació,barret,saver', 'circunval·lació,barret,saviesa']},
+        {type: 'bv', correctSeries: 'cantava,trobaves,acabar', incorrect: ['cantaba,trobabes,acabàvem', 'cantava,trobaves,acabavem']}
+      ]
+    };
+
+    let questions = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let correctAnswers = 0;
+    let answered = false;
+    let participantName = '';
+    let sonoraCorrect = 0;
+    let sordaCorrect = 0;
+    let gameMode = 'practice';
+    let selectedTestId = '';
+    let questionDetails = []; // Track each question result
+    
+    let rankingData = [];
+    
+    const dataHandler = {
+      onDataChanged(data) {
+        rankingData = data.sort((a, b) => {
+          if (b.percentage !== a.percentage) return b.percentage - a.percentage;
+          if (b.correct_answers !== a.correct_answers) return b.correct_answers - a.correct_answers;
+          return b.score - a.score;
+        });
+        renderRankingList();
+      }
+    };
+
+    async function initDataSdk() {
+      if (window.dataSdk) {
+        const result = await window.dataSdk.init(dataHandler);
+        if (!result.isOk) {
+          console.error('Failed to init Data SDK');
+        }
+      }
+    }
+
+    function selectMode(mode) {
+      gameMode = mode;
+      
+      const practiceBtn = document.getElementById('mode-practice');
+      const examBtn = document.getElementById('mode-exam');
+      const description = document.getElementById('mode-description');
+      const testSelection = document.getElementById('test-selection');
+      
+      if (mode === 'practice') {
+        practiceBtn.classList.add('selected');
+        practiceBtn.classList.remove('bg-white/30');
+        practiceBtn.classList.add('bg-white/80');
+        examBtn.classList.remove('selected');
+        examBtn.classList.remove('bg-white/80');
+        examBtn.classList.add('bg-white/30');
+        examBtn.style.borderColor = '#e5e7eb';
+        examBtn.style.color = '#6b7280';
+        
+        description.className = 'text-xs px-3 py-2 rounded-lg bg-emerald-50 text-emerald-700 text-left';
+        description.textContent = '📚 Mode pràctica: Aprèn sense pressió. Veure explicacions de cada resposta.';
+        
+        testSelection.classList.add('hidden');
+        selectedTestId = '';
+      } else {
+        examBtn.classList.add('selected');
+        examBtn.classList.remove('bg-white/30');
+        examBtn.classList.add('bg-white/80');
+        examBtn.style.borderColor = '#f59e0b';
+        examBtn.style.color = '#d97706';
+        practiceBtn.classList.remove('selected');
+        practiceBtn.classList.remove('bg-white/80');
+        practiceBtn.classList.add('bg-white/30');
+        
+        description.className = 'text-xs px-3 py-2 rounded-lg bg-amber-50 text-amber-700 text-left';
+        description.textContent = '🏆 Mode examen: Prova tancada amb les mateixes preguntes per a tots.';
+        
+        testSelection.classList.remove('hidden');
+      }
+    }
+
+    function selectTest(testId) {
+      selectedTestId = testId;
+      document.getElementById('selected-test').value = testId;
+      
+      document.querySelectorAll('.test-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        btn.style.borderColor = '#a78bfa';
+        btn.style.background = 'rgba(255, 255, 255, 0.6)';
+      });
+      
+      event.target.closest('.test-btn').classList.add('selected');
+      event.target.closest('.test-btn').style.borderColor = '#7c3aed';
+      event.target.closest('.test-btn').style.background = 'rgba(255, 255, 255, 0.9)';
+    }
+
+    function generateQuestions() {
+      questionDetails = [];
+      
+      if (gameMode === 'exam' && selectedTestId && FIXED_TESTS[selectedTestId]) {
+        const test = FIXED_TESTS[selectedTestId];
+        
+        // Check if it's a B/V test
+        if (test[0].type === 'bv') {
+          questions = test.map(q => {
+            const words = shuffleArray([
+              { text: q.correctSeries, correct: true },
+              { text: q.incorrect[0], correct: false },
+              { text: q.incorrect[1], correct: false }
+            ]);
+            
+            return {
+              type: 'bv',
+              words: words,
+              correctSeries: q.correctSeries
+            };
+          });
+        } else {
+          // S sonora/sorda test
+          questions = test.map(q => {
+            const words = shuffleArray([
+              { text: q.correctWord, type: q.askingFor, correct: true },
+              { text: q.incorrect[0], type: q.askingFor === 'sonora' ? 'sorda' : 'sonora', correct: false },
+              { text: q.incorrect[1], type: q.askingFor === 'sonora' ? 'sorda' : 'sonora', correct: false }
+            ]);
+            
+            return {
+              askingFor: q.askingFor,
+              words: words,
+              correctWord: q.correctWord
+            };
+          });
+        }
+      } else {
+        questions = [];
+        const totalQuestions = 15;
+        
+        for (let i = 0; i < totalQuestions; i++) {
+          const askingSonora = i % 2 === 0;
+          const correctType = askingSonora ? 'sonora' : 'sorda';
+          const incorrectType = askingSonora ? 'sorda' : 'sonora';
+          
+          const correctArray = correctType === 'sonora' ? WORDS.sonora : WORDS.sorda;
+          const incorrectArray = incorrectType === 'sonora' ? WORDS.sonora : WORDS.sorda;
+          
+          const usedWords = [];
+          
+          const correctWord = getRandomWord(correctArray, usedWords);
+          usedWords.push(correctWord);
+          
+          const incorrectWord1 = getRandomWord(incorrectArray, usedWords);
+          usedWords.push(incorrectWord1);
+          
+          const incorrectWord2 = getRandomWord(incorrectArray, usedWords);
+          usedWords.push(incorrectWord2);
+          
+          const words = shuffleArray([
+            { text: correctWord, type: correctType, correct: true },
+            { text: incorrectWord1, type: incorrectType, correct: false },
+            { text: incorrectWord2, type: incorrectType, correct: false }
+          ]);
+          
+          questions.push({
+            askingFor: correctType,
+            words: words,
+            correctWord: correctWord
+          });
+        }
+      }
+    }
+
+    function getRandomWord(array, exclude = []) {
+      const available = array.filter(word => !exclude.includes(word));
+      if (available.length === 0) {
+        return array[Math.floor(Math.random() * array.length)];
+      }
+      return available[Math.floor(Math.random() * available.length)];
+    }
+
+    function shuffleArray(array) {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    function saveParticipantName(event) {
+      event.preventDefault();
+      participantName = document.getElementById('participant-name').value.trim();
+      
+      if (gameMode === 'exam' && !selectedTestId) {
+        const alertBox = document.createElement('div');
+        alertBox.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-xl shadow-lg z-50 bounce-in';
+        alertBox.textContent = '⚠️ Selecciona una prova abans de començar';
+        document.body.appendChild(alertBox);
+        setTimeout(() => alertBox.remove(), 3000);
+        return;
+      }
+      
+      if (participantName) {
+        startQuiz();
+      }
+    }
+
+    function startQuiz() {
+      generateQuestions();
+      currentQuestionIndex = 0;
+      score = 0;
+      correctAnswers = 0;
+      sonoraCorrect = 0;
+      sordaCorrect = 0;
+      
+      hideAllScreens();
+      document.getElementById('quiz-screen').classList.remove('hidden');
+      
+      const modeIndicator = document.getElementById('mode-indicator');
+      if (gameMode === 'practice') {
+        modeIndicator.textContent = '📚 Pràctica';
+        modeIndicator.style.background = 'rgba(16, 185, 129, 0.3)';
+      } else {
+        modeIndicator.textContent = `🏆 Prova ${selectedTestId}`;
+        modeIndicator.style.background = 'rgba(245, 158, 11, 0.3)';
+      }
+      
+      showQuestion();
+    }
+
+    function showQuestion() {
+      if (currentQuestionIndex >= questions.length) {
+        showResults();
+        return;
+      }
+      
+      const question = questions[currentQuestionIndex];
+      answered = false;
+      
+      document.getElementById('question-counter').textContent = `Pregunta ${currentQuestionIndex + 1} de ${questions.length}`;
+      document.getElementById('score-display').textContent = score;
+      document.getElementById('correct-display').textContent = correctAnswers;
+      
+      const progress = (currentQuestionIndex / questions.length) * 100;
+      document.getElementById('quiz-progress').style.width = progress + '%';
+      
+      const badgeContainer = document.getElementById('sound-badge-container');
+      
+      if (question.type === 'bv') {
+        // B/V question
+        badgeContainer.innerHTML = '<span class="sound-badge" style="background: linear-gradient(135deg, #10b981, #059669);">✍️ B i V</span>';
+        document.getElementById('question-text').innerHTML = 'Tria la <strong>SÈRIE CORRECTA</strong>:';
+      } else {
+        // S sonora/sorda question
+        const badgeClass = question.askingFor === 'sonora' ? 'sonora' : 'sorda';
+        const badgeText = question.askingFor === 'sonora' ? '🔵 S Sonora' : '🟠 S Sorda';
+        badgeContainer.innerHTML = `<span class="sound-badge ${badgeClass}">${badgeText}</span>`;
+        
+        const questionText = question.askingFor === 'sonora' 
+          ? 'Quina d\'aquestes paraules conté una <strong>S SONORA</strong>?' 
+          : 'Quina d\'aquestes paraules conté una <strong>S SORDA</strong>?';
+        document.getElementById('question-text').innerHTML = questionText;
+      }
+      
+      const wordsContainer = document.getElementById('words-container');
+      wordsContainer.innerHTML = '';
+      
+      const colors = ['#3b82f6', '#8b5cf6', '#f59e0b'];
+      
+      question.words.forEach((word, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'word-btn p-6 md:p-8 rounded-2xl text-center w-full slide-in';
+        btn.style.animationDelay = (idx * 0.1) + 's';
+        btn.style.background = 'white';
+        btn.style.border = `4px solid ${colors[idx]}`;
+        
+        if (question.type === 'bv') {
+          btn.innerHTML = `<span class="text-xl md:text-2xl font-bold text-gray-800">${word.text}</span>`;
+        } else {
+          btn.innerHTML = `<span class="text-2xl md:text-3xl font-bold text-gray-800">${word.text}</span>`;
+        }
+        
+        btn.onclick = () => selectWord(word, btn);
+        wordsContainer.appendChild(btn);
+      });
+      
+      document.getElementById('feedback-area').classList.add('hidden');
+      document.getElementById('question-area').classList.remove('hidden');
+    }
+
+    function selectWord(word, btn) {
+      if (answered) return;
+      answered = true;
+      
+      const question = questions[currentQuestionIndex];
+      const config = window.elementSdk?.config || defaultConfig;
+      
+      document.querySelectorAll('.word-btn').forEach(wordBtn => {
+        wordBtn.disabled = true;
+      });
+      
+      const correctWord = question.words.find(w => w.correct);
+      const isCorrect = word.correct;
+      
+      // Track question result
+      if (question.type === 'bv') {
+        questionDetails.push({
+          questionNumber: currentQuestionIndex + 1,
+          type: 'bv',
+          correctSeries: correctWord.text,
+          selectedSeries: word.text,
+          isCorrect: isCorrect
+        });
+      } else {
+        questionDetails.push({
+          questionNumber: currentQuestionIndex + 1,
+          askingFor: question.askingFor,
+          correctWord: correctWord.text,
+          selectedWord: word.text,
+          isCorrect: isCorrect
+        });
+      }
+      
+      if (isCorrect) {
+        btn.classList.add('correct');
+        correctAnswers++;
+        score += 100;
+        
+        if (question.askingFor === 'sonora') sonoraCorrect++;
+        else if (question.askingFor === 'sorda') sordaCorrect++;
+        
+        document.getElementById('feedback-icon').textContent = '✅';
+        document.getElementById('feedback-text').textContent = config.correct_message || defaultConfig.correct_message;
+        document.getElementById('feedback-text').style.color = '#059669';
+        
+        if (question.type === 'bv') {
+          document.getElementById('explanation-text').textContent = `Perfecte! Has triat la sèrie correcta.`;
+          document.getElementById('rule-text').textContent = 'Revisa bé l\'ortografia de cada paraula: B i V tenen regles diferents segons la seva posició i context.';
+        } else {
+          document.getElementById('explanation-text').textContent = `Correcte! "${word.text}" conté una S ${question.askingFor.toUpperCase()}.`;
+          const ruleText = RULES[correctWord.text] || 'Consulta les regles gramaticals.';
+          document.getElementById('rule-text').textContent = ruleText;
+        }
+        
+        createConfetti();
+      } else {
+        btn.classList.add('incorrect');
+        
+        document.querySelectorAll('.word-btn').forEach((wordBtn, idx) => {
+          if (question.words[idx].correct) {
+            wordBtn.classList.add('correct');
+          }
+        });
+        
+        document.getElementById('feedback-icon').textContent = '❌';
+        document.getElementById('feedback-text').textContent = config.incorrect_message || defaultConfig.incorrect_message;
+        document.getElementById('feedback-text').style.color = '#dc2626';
+        
+        if (question.type === 'bv') {
+          document.getElementById('explanation-text').textContent = `La sèrie correcta era: "${correctWord.text}"`;
+          document.getElementById('rule-text').textContent = 'Fixa\'t bé en cada paraula de la sèrie. Revisa les regles ortogràfiques de B i V per millorar.';
+        } else {
+          document.getElementById('explanation-text').textContent = `La resposta correcta era "${correctWord.text}". Aquesta paraula conté una S ${question.askingFor.toUpperCase()}.`;
+          const ruleText = RULES[correctWord.text] || 'Consulta les regles gramaticals.';
+          document.getElementById('rule-text').textContent = ruleText;
+        }
+      }
+      
+      document.getElementById('score-display').textContent = score;
+      document.getElementById('correct-display').textContent = correctAnswers;
+      document.getElementById('question-area').classList.add('hidden');
+      document.getElementById('feedback-area').classList.remove('hidden');
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      showQuestion();
+    }
+
+    async function showResults() {
+      hideAllScreens();
+      document.getElementById('results-screen').classList.remove('hidden');
+      
+      const percentage = Math.round((correctAnswers / questions.length) * 100);
+      
+      const rankingPosition = await saveToRanking();
+      
+      if (percentage === 100) {
+        document.getElementById('results-icon').textContent = '🏆';
+        document.getElementById('results-title').textContent = `Perfecte, ${participantName}!`;
+        document.getElementById('results-message').textContent = 'Has encertat totes les preguntes! Ets un/a expert/a!';
+        createConfetti();
+      } else if (percentage >= 80) {
+        document.getElementById('results-icon').textContent = '🌟';
+        document.getElementById('results-title').textContent = `Excel·lent, ${participantName}!`;
+        document.getElementById('results-message').textContent = 'Molt bon domini de la S sonora i sorda!';
+      } else if (percentage >= 60) {
+        document.getElementById('results-icon').textContent = '👏';
+        document.getElementById('results-title').textContent = `Molt bé, ${participantName}!`;
+        document.getElementById('results-message').textContent = 'Vas per bon camí! Segueix practicant!';
+      } else {
+        document.getElementById('results-icon').textContent = '💪';
+        document.getElementById('results-title').textContent = `Ànim, ${participantName}!`;
+        document.getElementById('results-message').textContent = 'Amb més pràctica ho aconseguiràs!';
+      }
+      
+      document.getElementById('final-correct').textContent = `${correctAnswers}/${questions.length}`;
+      document.getElementById('final-score').textContent = score;
+      document.getElementById('final-percentage').textContent = percentage + '%';
+      
+      document.getElementById('sonora-correct').textContent = sonoraCorrect;
+      document.getElementById('sorda-correct').textContent = sordaCorrect;
+      
+      const rankingBanner = document.getElementById('ranking-position-banner');
+      if (rankingPosition && gameMode === 'exam') {
+        rankingBanner.classList.remove('hidden');
+        if (rankingPosition === 1) {
+          document.getElementById('ranking-position-text').textContent = 'Nou rècord! Ets el número 1!';
+        } else if (rankingPosition <= 3) {
+          document.getElementById('ranking-position-text').textContent = `Posició ${rankingPosition} al rànquing!`;
+        } else {
+          document.getElementById('ranking-position-text').textContent = `Has entrat al rànquing (posició ${rankingPosition})`;
+        }
+      } else {
+        rankingBanner.classList.add('hidden');
+      }
+    }
+
+    async function saveToRanking() {
+      if (!window.dataSdk) return null;
+      
+      const percentage = Math.round((correctAnswers / questions.length) * 100);
+      
+      if (rankingData.length >= 999) {
+        const worstEntry = rankingData[rankingData.length - 1];
+        if (percentage > worstEntry.percentage || 
+            (percentage === worstEntry.percentage && correctAnswers > worstEntry.correct_answers)) {
+          await window.dataSdk.delete(worstEntry);
+        } else {
+          return null;
+        }
+      }
+      
+      const newEntry = {
+        player_name: participantName,
+        correct_answers: correctAnswers,
+        total_questions: questions.length,
+        percentage: percentage,
+        score: score,
+        date: new Date().toISOString(),
+        mode: gameMode,
+        test_id: selectedTestId || '',
+        question_details: JSON.stringify(questionDetails)
+      };
+      
+      const result = await window.dataSdk.create(newEntry);
+      
+      if (result.isOk) {
+        const position = rankingData.filter(r => 
+          r.percentage > percentage || 
+          (r.percentage === percentage && r.correct_answers > correctAnswers) ||
+          (r.percentage === percentage && r.correct_answers === correctAnswers && r.score > score)
+        ).length + 1;
+        return position;
+      }
+      
+      return null;
+    }
+
+    function restartQuiz() {
+      startQuiz();
+    }
+
+    function backToWelcome() {
+      hideAllScreens();
+      document.getElementById('welcome-screen').classList.remove('hidden');
+      document.getElementById('participant-name').value = '';
+      selectedTestId = '';
+      document.querySelectorAll('.test-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        btn.style.borderColor = '#a78bfa';
+        btn.style.background = 'rgba(255, 255, 255, 0.6)';
+      });
+    }
+
+    // Admin functions
+    function showAdminLogin() {
+      const config = window.elementSdk?.config || defaultConfig;
+      const password = config.admin_password || defaultConfig.admin_password;
+      
+      const modal = document.createElement('div');
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay';
+      modal.innerHTML = `
+        <div class="glass-card rounded-2xl p-6 max-w-sm w-full bounce-in">
+          <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🔐 Accés administrador</h3>
+          <form onsubmit="checkAdminPassword(event)">
+            <label for="admin-password-input" class="sr-only">Contrasenya</label>
+            <input type="password" id="admin-password-input" 
+                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-purple-400 mb-4"
+                   placeholder="Contrasenya"
+                   required>
+            <div class="flex gap-2">
+              <button type="button" onclick="this.closest('.modal-overlay').remove()" 
+                      class="flex-1 px-4 py-2 rounded-xl font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition-all">
+                Cancel·lar
+              </button>
+              <button type="submit" 
+                      class="flex-1 px-4 py-2 rounded-xl font-bold text-white transition-all hover:scale-105" 
+                      style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+                Entrar
+              </button>
+            </div>
+          </form>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+
+    function checkAdminPassword(event) {
+      event.preventDefault();
+      const config = window.elementSdk?.config || defaultConfig;
+      const correctPassword = config.admin_password || defaultConfig.admin_password;
+      const inputPassword = document.getElementById('admin-password-input').value;
+      
+      if (inputPassword === correctPassword) {
+        event.target.closest('.modal-overlay').remove();
+        showAdminModal();
+      } else {
+        const alertBox = document.createElement('div');
+        alertBox.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-xl shadow-lg z-50 bounce-in';
+        alertBox.textContent = '❌ Contrasenya incorrecta';
+        document.body.appendChild(alertBox);
+        setTimeout(() => alertBox.remove(), 3000);
+      }
+    }
+
+    function showAdminModal() {
+      document.getElementById('admin-modal').classList.remove('hidden');
+      showAdminTab('tests');
+    }
+
+    function closeAdminModal() {
+      document.getElementById('admin-modal').classList.add('hidden');
+    }
+
+    function showAdminTab(tab) {
+      ['tests', 'results', 'analysis'].forEach(t => {
+        document.getElementById(`admin-tab-${t}`).className = 'px-4 py-2 font-semibold text-gray-500';
+        document.getElementById(`admin-content-${t}`).classList.add('hidden');
+      });
+      
+      document.getElementById(`admin-tab-${tab}`).className = 'px-4 py-2 font-semibold text-purple-600 border-b-2 border-purple-600';
+      document.getElementById(`admin-content-${tab}`).classList.remove('hidden');
+      
+      if (tab === 'results') {
+        filterResultsByTest();
+      }
+    }
+
+    function viewTestQuestions(testId) {
+      const test = FIXED_TESTS[testId];
+      const modal = document.getElementById('test-questions-modal');
+      const title = document.getElementById('test-questions-title');
+      const list = document.getElementById('test-questions-list');
+      
+      const testNames = {
+        A: 'Prova A - S Sonora/Sorda (Mix)',
+        B: 'Prova B - S Sonora/Sorda (Z i trans/dins/fons)',
+        C: 'Prova C - S Sonora/Sorda (C/Ç i SS)',
+        D: 'Prova D - S Sonora/Sorda (Mix avançat)',
+        E: 'Prova E - B i V (Sèrie 1)',
+        F: 'Prova F - B i V (Sèrie 2)'
+      };
+      
+      title.textContent = testNames[testId] || `Prova ${testId}`;
+      
+      list.innerHTML = test.map((q, idx) => {
+        if (q.type === 'bv') {
+          // B/V question
+          return `
+            <div class="bg-white rounded-xl p-4 border-2 border-gray-200">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-bold text-gray-700">Pregunta ${idx + 1}</span>
+                <span class="text-xs px-2 py-1 rounded-full font-semibold bg-emerald-100 text-emerald-800">✍️ B i V</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">Sèrie correcta: <strong>${q.correctSeries}</strong></p>
+              <p class="text-xs text-gray-500">Incorrectes:</p>
+              <p class="text-xs text-gray-500 ml-2">• ${q.incorrect[0]}</p>
+              <p class="text-xs text-gray-500 ml-2">• ${q.incorrect[1]}</p>
+            </div>
+          `;
+        } else {
+          // S sonora/sorda question
+          const soundType = q.askingFor === 'sonora' ? '🔵 S SONORA' : '🟠 S SORDA';
+          const soundClass = q.askingFor === 'sonora' ? 'bg-blue-100 text-blue-800' : 'bg-orange-100 text-orange-800';
+          
+          return `
+            <div class="bg-white rounded-xl p-4 border-2 border-gray-200">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-bold text-gray-700">Pregunta ${idx + 1}</span>
+                <span class="text-xs px-2 py-1 rounded-full font-semibold ${soundClass}">${soundType}</span>
+              </div>
+              <p class="text-sm text-gray-600 mb-2">Resposta correcta: <strong>${q.correctWord}</strong></p>
+              <p class="text-xs text-gray-500">Incorrectes: ${q.incorrect.join(', ')}</p>
+              <p class="text-xs text-purple-600 mt-2 italic">${RULES[q.correctWord]}</p>
+            </div>
+          `;
+        }
+      }).join('');
+      
+      modal.classList.remove('hidden');
+    }
+
+    function closeTestQuestionsModal() {
+      document.getElementById('test-questions-modal').classList.add('hidden');
+    }
+
+    function filterResultsByTest() {
+      const filterValue = document.getElementById('filter-test').value;
+      const list = document.getElementById('admin-results-list');
+      
+      const filtered = filterValue === 'all' 
+        ? rankingData.filter(r => r.mode === 'exam')
+        : rankingData.filter(r => r.mode === 'exam' && r.test_id === filterValue);
+      
+      if (filtered.length === 0) {
+        list.innerHTML = '<p class="text-gray-500 text-center py-8">No hi ha resultats per aquesta prova</p>';
+        return;
+      }
+      
+      list.innerHTML = filtered.map(entry => {
+        const dateStr = entry.date ? new Date(entry.date).toLocaleDateString('ca-ES', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
+        
+        return `
+          <div class="bg-white rounded-xl p-4 border-2 border-gray-200 hover:border-purple-300 transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex-1">
+                <p class="font-bold text-gray-800">${entry.player_name}</p>
+                <p class="text-xs text-gray-500">${dateStr} • Prova ${entry.test_id}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-bold text-purple-600">${entry.percentage}%</p>
+                <p class="text-xs text-gray-500">${entry.correct_answers}/${entry.total_questions}</p>
+              </div>
+            </div>
+            <button onclick="viewStudentDetails('${entry.player_name}', '${entry.test_id}', '${entry.date}')" 
+                    class="w-full mt-2 px-3 py-2 rounded-lg text-sm font-semibold text-purple-700 bg-purple-50 hover:bg-purple-100 transition-all">
+              👁️ Veure detalls
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function viewStudentDetails(playerName, testId, date) {
+      const entry = rankingData.find(r => r.player_name === playerName && r.test_id === testId && r.date === date);
+      if (!entry || !entry.question_details) return;
+      
+      const details = JSON.parse(entry.question_details);
+      
+      const modal = document.createElement('div');
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay';
+      modal.innerHTML = `
+        <div class="glass-card rounded-3xl p-6 md:p-8 max-w-2xl w-full shadow-2xl bounce-in max-h-[90%] overflow-hidden flex flex-col">
+          <div class="text-center mb-4">
+            <h3 class="text-2xl font-bold text-gray-800">${playerName}</h3>
+            <p class="text-gray-600">Prova ${testId} - ${entry.percentage}% (${entry.correct_answers}/${entry.total_questions})</p>
+          </div>
+          
+          <div class="flex-1 overflow-y-auto space-y-2 mb-4">
+            ${details.map(q => {
+              const isCorrect = q.isCorrect;
+              const bgColor = isCorrect ? 'bg-emerald-50 border-emerald-200' : 'bg-red-50 border-red-200';
+              const icon = isCorrect ? '✅' : '❌';
+              
+              if (q.type === 'bv') {
+                // B/V question
+                return `
+                  <div class="rounded-xl p-3 border-2 ${bgColor}">
+                    <div class="flex items-start justify-between mb-1">
+                      <span class="font-semibold text-gray-700">Pregunta ${q.questionNumber}</span>
+                      <span class="text-xl">${icon}</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-1">
+                      <strong>B i V</strong>
+                    </p>
+                    <p class="text-sm ${isCorrect ? 'text-emerald-700' : 'text-red-700'}">
+                      ${isCorrect ? `Correcte: ${q.selectedSeries}` : `Ha triat: ${q.selectedSeries}<br>Correcta: ${q.correctSeries}`}
+                    </p>
+                  </div>
+                `;
+              } else {
+                // S sonora/sorda question
+                return `
+                  <div class="rounded-xl p-3 border-2 ${bgColor}">
+                    <div class="flex items-start justify-between mb-1">
+                      <span class="font-semibold text-gray-700">Pregunta ${q.questionNumber}</span>
+                      <span class="text-xl">${icon}</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-1">
+                      Cercava: <strong>${q.askingFor === 'sonora' ? 'S SONORA' : 'S SORDA'}</strong>
+                    </p>
+                    <p class="text-sm ${isCorrect ? 'text-emerald-700' : 'text-red-700'}">
+                      ${isCorrect ? `Correcte: ${q.selectedWord}` : `Ha triat: ${q.selectedWord} (correcta: ${q.correctWord})`}
+                    </p>
+                  </div>
+                `;
+              }
+            }).join('')}
+          </div>
+          
+          <button onclick="this.closest('.modal-overlay').remove()" 
+                  class="w-full px-6 py-3 rounded-xl font-bold text-white transition-all hover:scale-105" 
+                  style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">
+            Tancar
+          </button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) this.remove();
+      });
+    }
+
+    function analyzeTest() {
+      const testId = document.getElementById('analyze-test').value;
+      if (!testId) return;
+      
+      const testResults = rankingData.filter(r => r.mode === 'exam' && r.test_id === testId);
+      
+      if (testResults.length === 0) {
+        document.getElementById('analysis-content').innerHTML = '<p class="text-gray-500 text-center py-8">No hi ha resultats per aquesta prova</p>';
+        return;
+      }
+      
+      // Calculate statistics
+      const avgPercentage = Math.round(testResults.reduce((sum, r) => sum + r.percentage, 0) / testResults.length);
+      const maxPercentage = Math.max(...testResults.map(r => r.percentage));
+      const minPercentage = Math.min(...testResults.map(r => r.percentage));
+      
+      // Question analysis
+      const questionStats = {};
+      testResults.forEach(result => {
+        if (result.question_details) {
+          const details = JSON.parse(result.question_details);
+          details.forEach(q => {
+            if (!questionStats[q.questionNumber]) {
+              questionStats[q.questionNumber] = { correct: 0, total: 0, word: (q.type === 'bv' ? q.correctSeries : q.correctWord) };
+            }
+            questionStats[q.questionNumber].total++;
+            if (q.isCorrect) questionStats[q.questionNumber].correct++;
+          });
+        }
+      });
+      
+      const sortedQuestions = Object.entries(questionStats)
+        .map(([num, stats]) => ({
+          number: num,
+          word: stats.word,
+          percentage: Math.round((stats.correct / stats.total) * 100)
+        }))
+        .sort((a, b) => a.percentage - b.percentage);
+      
+      document.getElementById('analysis-content').innerHTML = `
+        <div class="space-y-4">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-4 text-center">
+              <p class="text-xs text-purple-700 font-medium">Mitjana</p>
+              <p class="text-3xl font-bold text-purple-800">${avgPercentage}%</p>
+            </div>
+            <div class="bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl p-4 text-center">
+              <p class="text-xs text-emerald-700 font-medium">Màxim</p>
+              <p class="text-3xl font-bold text-emerald-800">${maxPercentage}%</p>
+            </div>
+            <div class="bg-gradient-to-br from-red-100 to-red-200 rounded-xl p-4 text-center">
+              <p class="text-xs text-red-700 font-medium">Mínim</p>
+              <p class="text-3xl font-bold text-red-800">${minPercentage}%</p>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-4 border-2 border-gray-200">
+            <h4 class="font-bold text-gray-800 mb-3">📊 Anàlisi per pregunta</h4>
+            <p class="text-xs text-gray-600 mb-3">Preguntes ordenades de més difícil a més fàcil:</p>
+            <div class="space-y-2">
+              ${sortedQuestions.map(q => {
+                const color = q.percentage >= 80 ? 'emerald' : q.percentage >= 60 ? 'amber' : 'red';
+                return `
+                  <div class="flex items-center justify-between p-2 rounded-lg bg-${color}-50">
+                    <div class="flex-1">
+                      <span class="text-sm font-semibold text-gray-700">Pregunta ${q.number}</span>
+                      <span class="text-xs text-gray-500 ml-2">(${q.word})</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <div class="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div class="h-full bg-${color}-500 rounded-full" style="width: ${q.percentage}%"></div>
+                      </div>
+                      <span class="text-sm font-bold text-${color}-700 w-12 text-right">${q.percentage}%</span>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+          
+          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+            <p class="text-sm text-blue-800">
+              <strong>💡 Recomanació:</strong> Revisa les preguntes amb menys del 60% d'encerts a classe per reforçar aquests conceptes.
+            </p>
+          </div>
+        </div>
+      `;
+    }
+
+    // Ranking functions
+    function showRankingModal() {
+      document.getElementById('ranking-modal').classList.remove('hidden');
+      renderRankingList();
+    }
+
+    function closeRankingModal() {
+      document.getElementById('ranking-modal').classList.add('hidden');
+    }
+
+    function renderRankingList() {
+      const list = document.getElementById('ranking-list');
+      
+      if (rankingData.length === 0) {
+        list.innerHTML = '<p class="text-gray-500 text-center py-8">Encara no hi ha puntuacions.<br>Sigues el primer!</p>';
+        return;
+      }
+      
+      list.innerHTML = rankingData.slice(0, 20).map((entry, idx) => {
+        const position = idx + 1;
+        let positionClass = 'ranking-normal';
+        let positionIcon = position;
+        
+        if (position === 1) {
+          positionClass = 'ranking-gold';
+          positionIcon = '🥇';
+        } else if (position === 2) {
+          positionClass = 'ranking-silver';
+          positionIcon = '🥈';
+        } else if (position === 3) {
+          positionClass = 'ranking-bronze';
+          positionIcon = '🥉';
+        }
+        
+        const dateStr = entry.date ? new Date(entry.date).toLocaleDateString('ca-ES', { day: 'numeric', month: 'short' }) : '';
+        const modeIcon = entry.mode === 'exam' ? '🏆' : '📚';
+        const testLabel = entry.test_id ? ` ${entry.test_id}` : '';
+        
+        return `
+          <div class="ranking-row flex items-center gap-3 p-3 rounded-xl bg-white/50">
+            <div class="ranking-position ${positionClass} text-lg">${positionIcon}</div>
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-gray-800 truncate">${entry.player_name || 'Anònim'} ${modeIcon}${testLabel}</p>
+              <p class="text-xs text-gray-500">${dateStr}</p>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-lg text-purple-600">${entry.percentage}%</p>
+              <p class="text-xs text-gray-500">${entry.correct_answers}/${entry.total_questions}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // History functions
+    function showHistoryModal() {
+      const playerName = participantName || document.getElementById('participant-name').value.trim();
+      
+      if (!playerName) {
+        const customModal = document.createElement('div');
+        customModal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay';
+        customModal.innerHTML = `
+          <div class="glass-card rounded-2xl p-6 max-w-sm text-center">
+            <p class="text-xl mb-4">⚠️</p>
+            <p class="text-gray-700 mb-4">Escriu el teu nom per veure l'historial</p>
+            <button onclick="this.parentElement.parentElement.remove()" class="px-6 py-2 rounded-xl font-bold text-white" style="background: linear-gradient(135deg, #7c3aed, #6d28d9);">D'acord</button>
+          </div>
+        `;
+        document.body.appendChild(customModal);
+        customModal.addEventListener('click', function(e) {
+          if (e.target === this) this.remove();
+        });
+        return;
+      }
+      
+      document.getElementById('history-modal').classList.remove('hidden');
+      document.getElementById('history-player-name').textContent = playerName;
+      renderHistoryList(playerName);
+    }
+
+    function closeHistoryModal() {
+      document.getElementById('history-modal').classList.add('hidden');
+    }
+
+    function renderHistoryList(playerName) {
+      const playerGames = rankingData.filter(entry => entry.player_name === playerName);
+      const list = document.getElementById('history-list');
+      
+      if (playerGames.length === 0) {
+        list.innerHTML = '<p class="text-gray-500 text-center py-8">Encara no has jugat cap partida.<br>Comença ara!</p>';
+        document.getElementById('total-games').textContent = '0';
+        document.getElementById('best-percentage').textContent = '0%';
+        document.getElementById('avg-percentage').textContent = '0%';
+        return;
+      }
+      
+      const totalGames = playerGames.length;
+      const bestPercentage = Math.max(...playerGames.map(g => g.percentage));
+      const avgPercentage = Math.round(playerGames.reduce((sum, g) => sum + g.percentage, 0) / totalGames);
+      
+      document.getElementById('total-games').textContent = totalGames;
+      document.getElementById('best-percentage').textContent = bestPercentage + '%';
+      document.getElementById('avg-percentage').textContent = avgPercentage + '%';
+      
+      list.innerHTML = playerGames.slice(0, 10).map((entry, idx) => {
+        const dateStr = entry.date ? new Date(entry.date).toLocaleDateString('ca-ES', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
+        const modeIcon = entry.mode === 'exam' ? '🏆' : '📚';
+        const modeName = entry.mode === 'exam' ? `Prova ${entry.test_id}` : 'Pràctica';
+        
+        return `
+          <div class="flex items-center gap-3 p-3 rounded-xl bg-white/50 border border-gray-200">
+            <div class="text-2xl">${modeIcon}</div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-semibold text-gray-700">${modeName}</p>
+              <p class="text-xs text-gray-500">${dateStr}</p>
+            </div>
+            <div class="text-right">
+              <p class="font-bold text-lg text-purple-600">${entry.percentage}%</p>
+              <p class="text-xs text-gray-500">${entry.correct_answers}/${entry.total_questions}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.getElementById('ranking-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeRankingModal();
+      }
+    });
+
+    document.getElementById('history-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeHistoryModal();
+      }
+    });
+
+    document.getElementById('admin-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeAdminModal();
+      }
+    });
+
+    document.getElementById('test-questions-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeTestQuestionsModal();
+      }
+    });
+
+    function hideAllScreens() {
+      document.querySelectorAll('#app > div:not(#ranking-modal):not(#history-modal):not(#admin-modal):not(#test-questions-modal)').forEach(div => div.classList.add('hidden'));
+    }
+
+    function createConfetti() {
+      const colors = ['#7c3aed', '#fbbf24', '#10b981', '#3b82f6', '#f59e0b'];
+      for (let i = 0; i < 40; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        document.body.appendChild(confetti);
+        
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
+
+    // Element SDK
+    function applyStyles(config) {
+      document.getElementById('welcome-title').textContent = config.activity_title || defaultConfig.activity_title;
+      document.getElementById('welcome-instructions').textContent = config.instructions || defaultConfig.instructions;
+    }
+
+    async function onConfigChange(config) {
+      applyStyles(config);
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['activity_title', config.activity_title || defaultConfig.activity_title],
+        ['correct_message', config.correct_message || defaultConfig.correct_message],
+        ['incorrect_message', config.incorrect_message || defaultConfig.incorrect_message],
+        ['instructions', config.instructions || defaultConfig.instructions],
+        ['admin_password', config.admin_password || defaultConfig.admin_password]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+    
+    applyStyles(defaultConfig);
+    initDataSdk();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bc6694951d4cbd6',t:'MTc2ODE1NTQ1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;" src="./saved_resource(19).html"></iframe>
+</body></html>
