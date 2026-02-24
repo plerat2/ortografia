@@ -459,6 +459,8 @@ function handleDropCorrect(e) {
 
   showFeedback(`✓ Correcte: "${word}" (+${Math.floor(points)} punts)`, 'success');
   gameState.roundScore += Math.floor(points);
+  gameState.score += Math.floor(points);
+  document.getElementById('score').textContent = gameState.score;
   gameState.draggedWords[word] = { correct: true, points: Math.floor(points), time: elapsedTime };
   markWordSuccess(word);
   renderWords();
